@@ -1,12 +1,16 @@
 import Header from '@/components/Header'
+import Web3Provider from '@/providers/Web3Provider'
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Header />
-      <Component {...pageProps} />
+      <Web3Provider>
+        <Header />
+        <Component {...pageProps} />
+      </Web3Provider>
+
 
     </>
 
