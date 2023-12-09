@@ -13,14 +13,15 @@ const Main: React.FC = () => {
     };
 
     return (
-        <div className="flex flex-row justify-between">
-            <Image className="rounded-lg" src={main} alt="main" />
-            <div className="flex flex-col text-left items-center justify-center gap-5">
-                <span className="text-lg">Start your journey now!</span>
-                <Button className="bg-white" onClick={go('/create')}>
+        <div className=" mx-10 flex flex-row max-w-full justify-between">
+            <div className="flex flex-col text-center items-center justify-center gap-8">
+                <span className="text-7xl">Transforming the Luxury Shoes Market with Web3 </span>
+                <Button className="bg-black" onClick={go('/create')}>
                     Tokenise your property
                 </Button>
             </div>
+            <Image className="w-[820px]" src={main} alt="main" />
+
         </div>
     );
 };

@@ -1,13 +1,11 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
+import React from 'react';
 
-const inter = Inter({ subsets: ['latin'] })
+import Main from '@/components/Main';
 
-export default function Home() {
+export default function IndexPage(): React.ReactNode {
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-    </main>
-  )
+    <div style={{ width: '100%', height: '100%' }}>
+      <Main />
+    </div>
+  );
 }

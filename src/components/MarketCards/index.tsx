@@ -1,5 +1,5 @@
 import { memo, useEffect, useState } from 'react';
-import { Card, CardBody, CardFooter } from '@nextui-org/card';
+import { Card, CardBody, CardFooter } from '@nextui-org/react';
 
 import Carousel from '../Carousel';
 
@@ -9,40 +9,91 @@ const MarketCards = (): JSX.Element => {
     useEffect(() => {
         setIsClient(true);
     }, []);
-    const images = [
-        'https://img.freepik.com/free-photo/3d-rendering-house-model_23-2150799627.jpg?t=st=1697384061~exp=1697387661~hmac=dfc68101004a144fc8b1d9db5adcd73b8522defb78b64db1bb087ccb13754c4f&w=1480',
-        'https://img.freepik.com/free-photo/modern-residential-district-with-green-roof-balcony-generated-by-ai_188544-10276.jpg?size=626&ext=jpg&ga=GA1.2.663633836.1697379764&semt=ais',
+
+    // Create an array of objects with image groups and corresponding details
+    const propertyDetails = [
+        {
+            images: ['/assets/Sneaker1.png', '/assets/Sneaker2.png'],
+            title: 'Nike Air',
+            location: 'Indonesia, Bali',
+            objectPrice: '$20,000',
+            tokenPrice: '$50'
+        },
+        {
+            images: ['/assets/Sneaker3.png', '/assets/Sneaker4.png'],
+            title: 'Nike Air Jordans',
+            location: 'Beijing, China',
+            objectPrice: '$40,000',
+            tokenPrice: '$80'
+        },
+        {
+            images: ['/assets/Sneaker5.png', '/assets/Sneaker6.png'],
+            title: 'Adidas Rich ',
+            location: 'Chennai , India',
+            objectPrice: '$14,000',
+            tokenPrice: '$30'
+        },
+        {
+            images: ['/assets/Sneaker7.png', '/assets/Sneaker8.png'],
+            title: 'Lavish Vuitton',
+            location: 'Monaco, Monaco',
+            objectPrice: '$140,000',
+            tokenPrice: '$250'
+        },
+        {
+            images: ['/assets/Sneaker9.png', '/assets/Sneaker10.png'],
+            title: ' Gold Nike 2B',
+            location: 'Maldives, Mald',
+            objectPrice: '$100,000',
+            tokenPrice: '$170'
+        },
+        {
+            images: ['/assets/Sneaker11.png', '/assets/Sneaker12.png'],
+            title: 'Nike Gold',
+            location: 'Benaglurues, India',
+            objectPrice: '$540,000',
+            tokenPrice: '$700'
+        },
+        {
+            images: ['/assets/Sneaker13.png', '/assets/Sneaker14.png'],
+            title: 'Adidas Gold',
+            location: 'Tokyo, Japan',
+            objectPrice: '$400,000',
+            tokenPrice: '$800'
+        },
+        {
+            images: ['/assets/Sneaker15.png', '/assets/Sneaker16.png'],
+            title: 'Heels Gold',
+            location: 'Oslo , Norway ',
+            objectPrice: '$640,000',
+            tokenPrice: '$1700'
+        },
     ];
 
     return (
-        <div className="gap-3 grid grid-cols-2 sm:grid-cols-1">
-            {isClient && (
-                <>
-                    {[...Array.from({ length: 2 }).keys()].map((_, index) => (
-                        <Card shadow="sm" key={index} className="w-full bg-gray-200 cursor-auto">
-                            <div className="flex">
-                                <CardBody className="p-2 rounded-2xl overflow-visible shadow-lg w-1/2">
-                                    <Carousel images={images} />
-                                </CardBody>
-                                <CardFooter className="flex-col items-start gap-4 w-1/2 p-4">
-                                    <div>
-                                        <p className="text-gray-500 text-xl">Karra Loft 3A</p>
-                                        <p className="text-gray-500 text-sm">Indonesia, Bali</p>
-                                    </div>
-                                    <div>
-                                        <p className="text-gray-500 text-xl">Object Price</p>
-                                        <p className="text-white">$220,000</p>
-                                    </div>
-                                    <div>
-                                        <p className="text-gray-500 text-xl">Token Price</p>
-                                        <p className="text-white">$50</p>
-                                    </div>
-                                </CardFooter>
+        <div className="flex flex-wrap justify-center gap-4 my-5">
+            {isClient &&
+                propertyDetails.map((property, index) => (
+                    <Card shadow="sm" key={index} className="w-full sm:w-1/2 md:w-1/4 bg-gray-200 cursor-auto mb-4">
+                        <CardBody className="w-full">
+                            <Carousel images={property.images} />
+                        </CardBody>
+                        <CardFooter className="flex flex-col items-start gap-1 p-2">
+                            <div>
+                                <p className="text-gray-700 text-md">{property.title}</p>
+                                <p className="text-gray-500 text-xs">{property.location}</p>
                             </div>
-                        </Card>
-                    ))}
-                </>
-            )}
+                            <div>
+                                <p className="text-gray-700 text-sm">Object Price</p>
+                                <p className="text-black text-md">{property.objectPrice}</p>
+                            </div>
+                            <div>
+                                <p className="text-gray-700 text-sm">Token Price</p>
+                                <p className="text-black text-md">{property.tokenPrice}</p>
+                            </div>
+                        </CardFooter>
+                    </Card>
+                ))}
         </div>
     );
 };

@@ -1,6 +1,5 @@
 import { Component, ReactNode } from 'react';
 
-import styles from './index.module.scss';
 interface Properties {
     children: ReactNode;
 }
@@ -15,7 +14,6 @@ class ErrorBoundary extends Component<Properties, State> {
         super(properties);
         this.state = {
             hasError: false,
-            // eslint-disable-next-line unicorn/no-null
             error: null,
         };
     }
@@ -41,17 +39,15 @@ class ErrorBoundary extends Component<Properties, State> {
     render(): React.ReactNode | null {
         if (this.state.hasError) {
             return (
-                <>
-                    <section className={styles.page_404}>
-                        <div className={styles.content_box_404}>
-                            <h3>An error occurred.</h3>
-                            <p>Try refreshing the page</p>
-                            <a href="" className={styles.link_404}>
-                                Reload
-                            </a>
-                        </div>
-                    </section>
-                </>
+                <section className="py-10 bg-white h-full flex justify-center">
+                    <div className="mt-[-50px] flex flex-col items-center justify-center">
+                        <h3>An error occurred.</h3>
+                        <p>Try refreshing the page</p>
+                        <a href="" className="text-white py-2.5 px-5 bg-red-600 my-5 inline-block">
+                            Reload
+                        </a>
+                    </div>
+                </section>
             );
         }
         return this.props.children;
