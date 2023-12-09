@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import logo from '../../../public/assets/logo.png';
-import ConnectButton from '../ConnectButton';
+import ConnectButton from '../ConnectedButton';
 
 
 
